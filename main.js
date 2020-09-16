@@ -57,8 +57,8 @@ async function callGateway(bearerToken) {
 
 async function runTest() {
     const bearerToken = await getToken();
-    console.log (bearerToken);
     await callGateway(bearerToken);
+    console.log (`Bearer token used: bearer ${bearerToken}`);
 
 }
 async function getToken() {
