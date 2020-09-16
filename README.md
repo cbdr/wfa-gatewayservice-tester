@@ -3,4 +3,5 @@ nodejs code that generates a bearer token from zuul credentials and retrieves a 
 
 # How to test
 > npm i
+
 > node main.js clientId clientSecret
