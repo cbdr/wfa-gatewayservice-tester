@@ -4,11 +4,12 @@ var jwt = JWT();
 var myArgs = process.argv.slice(2);
 console.log('myArgs: ', myArgs);
 
-var client_id = myArgs[0];
-var secret = myArgs[1];
+var environment = myArgs[0];
+var client_id = myArgs[1];
+var secret = myArgs[2];
 
-var token_url = "https://api.careerbuilder.com/oauth/token";
-var url = "https://api.careerbuilder.com/corporate/supplydemandservice/gateway/summaryfull";
+var token_url = environment === 'production' ? "https://api.careerbuilder.com/oauth/token" : "https://wwwtest.api.careerbuilder.com/oauth/token";
+var url = environment === 'production' ? "https://api.careerbuilder.com/corporate/supplydemandservice/gateway/summaryfull" : "https://wwwtest.api.careerbuilder.com/corporate/supplydemandservice/gateway/summaryfull";
 var year_month_min = new Date();
 year_month_min.setFullYear(year_month_min.getFullYear() -2);
 var data = {
@@ -24,7 +25,7 @@ var data = {
     "allow_multiselect": false,
     "compensation_breakout":"",
     "use_recruitmentedge_api":true,
-    "keywords": "***CACHEBYPASS***rn",
+    "keywords": "rn",
     "skills_v4":[""],
     "carotene_v3":[""],
     "group_by": [
